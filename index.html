@@ -18,6 +18,8 @@
   <style>
    body {
       font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      overflow-x: hidden;
     }
     /* Scrollbar for textarea and inputs */
     textarea::-webkit-scrollbar {
@@ -31,20 +33,45 @@
     textarea::-webkit-scrollbar-track {
       background: transparent;
     }
+    /* Neon glow effect for container */
+    .neon-glow {
+      box-shadow:
+        0 0 8px #6366f1,
+        0 0 20px #6366f1,
+        0 0 30px #8b5cf6,
+        0 0 40px #a78bfa,
+        0 0 50px #c4b5fd;
+    }
+    /* Fiberous subtle pattern overlay */
+    .fiberous-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.07;
+    }
   </style>
  </head>
- <body class="bg-gray-100 min-h-screen flex flex-col">
-  <header class="bg-white shadow-md sticky top-0 z-30">
+ <body class="min-h-screen flex flex-col relative">
+  <img alt="Subtle fiberous pattern background with soft lines and textures in dark blue and purple hues, creating a delicate and elegant texture overlay" class="fiberous-bg" draggable="false" height="1080" src="https://storage.googleapis.com/a1aa/image/1eeaf610-60e2-45df-b5a1-fde5117e9b37.jpg" width="1920"/>
+  <header class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-30 neon-glow">
    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-    <h1 class="text-3xl font-semibold text-indigo-700 tracking-wide select-none">
+    <h1 class="text-3xl font-semibold text-indigo-600 tracking-wide select-none drop-shadow-md">
      Resume Builder
     </h1>
-    <img alt="Logo icon with letters R and B in blue and white, modern style" class="w-10 h-10 rounded-full" draggable="false" height="40" src="https://storage.googleapis.com/a1aa/image/9bae4912-9f7f-439c-f1ba-3b52527a21c6.jpg" width="40"/>
+    <img alt="Logo icon with letters R and B in blue and white, modern style" class="w-10 h-10 rounded-full drop-shadow-lg" draggable="false" height="40" src="https://storage.googleapis.com/a1aa/image/9bae4912-9f7f-439c-f1ba-3b52527a21c6.jpg" width="40"/>
    </div>
   </header>
-  <main class="flex-grow container mx-auto px-6 py-8 max-w-5xl" id="root">
+  <main class="flex-grow container mx-auto px-6 py-8 max-w-5xl relative z-10">
+   <div class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-indigo-700 rounded-3xl p-10 neon-glow shadow-2xl">
+    <div id="root">
+    </div>
+   </div>
   </main>
-  <footer class="bg-white border-t border-gray-200 text-center py-4 text-gray-500 text-sm select-none">
+  <footer class="bg-white/90 backdrop-blur-md border-t border-gray-300 text-center py-4 text-gray-600 text-sm select-none neon-glow z-10 relative">
    © 2024 Resume Builder. All rights reserved.
   </footer>
   <script type="text/babel">
@@ -323,7 +350,7 @@
       }
 
       return (
-        <div className="bg-white rounded-xl shadow-lg p-8 max-w-5xl mx-auto">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-2xl p-8 max-w-5xl mx-auto neon-glow">
           <section className="mb-8">
             <label
               htmlFor="file-upload"
